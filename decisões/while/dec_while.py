@@ -1,20 +1,25 @@
-resposta="SIM"
-while resposta=="SIM":
-    nivel=input("Digite o nível de acesso: ").upper()
-    if nivel=="ADM" or nivel=="USR":
-        genero=input("Digite o seu gênero: ").upper()
-        if nivel=="ADM":
-            if genero=="FEMININO":
-                print("Olá administradora")
-            else:
-                print("Olá administrador")
+nome=input("Digite o nome: ")
+idade=int(input("Digite a idade: "))
+doenca_infectocontagiosa=input("Suspeita de doença infecto-contagiosa? ").upper()
+
+while doenca_infectocontagiosa!="SIM" and  doenca_infectocontagiosa!="NAO":
+    print("Digite SIM ou NAO")
+    doenca_infectocontagiosa = input("Suspeita de doença infecto-contagiosa? ").upper()
+
+if doenca_infectocontagiosa=="SIM":
+    print("Encaminhe o paciente para sala AMARELA")
+else:
+    print("Encaminhe o paciente para sala BRANCA")
+
+if idade >= 65:
+    print("Paciente COM prioridade")
+else:
+    genero=input("Digite o gênero do paciente: ").upper()
+    if genero=="FEMININO" and idade>10:
+        gravidez=input("A paciente está grávida? ").upper()
+        if gravidez=="SIM":
+            print("Paciente COM prioridade")
         else:
-            if genero=="FEMININO":
-                print("Olá usuária")
-            else:
-                print("Olá usuario")
-    elif nivel=="GUEST":
-        print("Olá visitante")
+            print("Paciente SEM prioridade")
     else:
-        print("Olá desconhecido(a)")
-    resposta=input("Digite SIM para continuar: ").upper()
+        print("Paciente SEM prioridade")
